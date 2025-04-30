@@ -29,8 +29,3 @@ if filtered_tasks:
         st.write(f"{i}. {t['task']} — *{t['priority']}*")
 else:
     st.write("No tasks to show.")
-
-# Optional reset
-if st.button("Clear All Tasks"):
-    st.session_state.tasks.clear()
-    st.success("All tasks cleared.")
