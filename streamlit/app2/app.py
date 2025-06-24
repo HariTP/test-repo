@@ -1,5 +1,6 @@
 import streamlit as st
 import random
+from dataflow.dataflow import Dataflow
 
 def generate_data(n=10):
     return [
@@ -8,8 +9,23 @@ def generate_data(n=10):
     ]
 
 def main():
+    dataflow = Dataflow()
     st.title("Streamlit Table Viewer")
+    db = dataflow.connection("local_db")
+    print(db)
 
+    dummy = dataflow.variable("dummy")
+    st.write("dummy global variable is:", dummy)
+    dummy_1 = dataflow.variable("dummy_local")
+    st.write("dummy local variable is:", dummy_1)
+    dummy_2 = dataflow.variable("dummy_local_2")
+    st.write("dummy local variable 2 is:", dummy_2)
+
+    dummy_3 = dataflow.secret("dummy_secret")
+    st.write("dummy global secret is:", dummy_3)
+    dummy_4 = dataflow.secret("dummy_secret_local")
+    st.write("dummy local secret is:", dummy_4)
+    
     # Sidebar controls
     st.sidebar.header("Controls")
     num_rows = st.sidebar.slider("Number of rows", min_value=5, max_value=50, value=10)
