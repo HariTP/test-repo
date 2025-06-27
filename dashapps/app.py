@@ -15,6 +15,7 @@ dummy_2 = dataflow.variable("dummy_local_2")
 dummy_3 = dataflow.secret("dummy_secret")
 dummy_4 = dataflow.secret("dummy_secret_local")
 
+print("this is printed")
 app.layout = html.Div([
     html.H1("Simple Dash App"),
     dcc.Input(id='input-name', type='text', placeholder='Enter your name'),
