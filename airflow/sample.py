@@ -7,11 +7,25 @@ from datetime import datetime
 def print_api_key():
     # Fetch the variable
     api_key = Variable.get("news_api_key")
+    api_key_local = Variable.get("news_api_key_local")
     api_key_secret = Variable.get("news_api_key_secret")
-    if api_key_secret=="hello":
-        print("success ho gya")
+    api_key_secret_local = Variable.get("news_api_key_secret_local")
+    if api_key_local=="hello_variable_local":
+        print("success ho gya1")
     else:
-        print("fail")
+        print("fail1")
+    if api_key_secret=="hello":
+        print("success ho gya2")
+    else:
+        print("fail2")
+    if api_key=="hello_variable":
+        print("success ho gya3")
+    else:
+        print("fail3")
+    if api_key_secret_local=="hello_local":
+        print("success ho gya4")
+    else:
+        print("fail4")
     print(f"News API Key is: {api_key}")
     print(f"News API Key secret is: {api_key_secret}")
     conn_id = 'my_conn'
