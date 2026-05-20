@@ -3,10 +3,13 @@ from airflow.operators.python import PythonOperator
 from airflow.models import Variable, Connection
 from airflow.hooks.base import BaseHook
 from datetime import datetime
-import tqdm
-import yfinance
 
 def print_api_key():
+    import tqdm
+    try:
+        import yfinance
+    except Exception as e:
+        print(e)
     # Fetch the variable
     api_key = Variable.get("news_api_key")
     api_key_local = Variable.get("news_api_key_local")
