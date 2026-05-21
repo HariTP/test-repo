@@ -3,6 +3,7 @@ from airflow.operators.python import PythonOperator
 from airflow.models import Variable, Connection
 from airflow.hooks.base import BaseHook
 from datetime import datetime
+import yfinance
 
 def print_api_key():
     try:
