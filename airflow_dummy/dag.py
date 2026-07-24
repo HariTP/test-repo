@@ -7,6 +7,7 @@ from airflow.operators.python import PythonOperator
 
 def sleep_and_print():
     print("Task started")
+    print(">>> LATEST VERSION: force-sync fallback test <<<")
 
     time.sleep(60)
 
